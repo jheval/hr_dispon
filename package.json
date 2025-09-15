@@ -1,10 +1,12 @@
 {
   "name": "hr_dispon",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sistema de reservas de horarios para clases virtuales",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server",
+    "dev": "http-server -c-1"
   },
   "author": "",
   "license": "ISC",

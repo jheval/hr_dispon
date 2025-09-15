@@ -163,13 +163,6 @@ footer {
     }
 }
 
-
-
-
-
-
-/* ... existing code ... */
-
 .week-selector {
     margin-top: 15px;
 }
@@ -215,6 +208,76 @@ footer {
         font-size: 12px;
         padding: 5px 8px;
     }
+}
+
+/* Estilos para el modal de reserva */
+.reservation-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    width: 300px;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.reservation-modal input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.reservation-modal button {
+    width: 100%;
+    padding: 10px;
+    background: #4b6cb7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.reservation-modal button:hover {
+    background: #182848;
+}
+
+.reserved {
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+    color: white;
+    cursor: default;
+}
+
+.reserved-info {
+    display: none;
+    position: absolute;
+    background: white;
+    color: #333;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+.reserved:hover .reserved-info {
+    display: block;
 }
 
 
