@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disponibilidad Horaria - Clases Virtuales</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ventana de Disponibilidad Horaria</h1>
+            <h2><span style="text-decoration: line-through; opacity: 50%;">Contable</span> -
+                <span style="text-decoration: line-through; opacity: 50%;">Tributaria</span> - Financiero</h2>
+                
+            </br>
+            <p class="subtitle">Septiembre 2025</p>
+        </header>
+        
+        <div class="schedule-container">
+            <div class="time-range">
+                Lunes a Viernes → <strong>15:00 - 17:00</strong>  </br>
+                Sábado y Domingo → <strong></strong> 15:00 - 20:00
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color legend-available"></div>
+                    <span>Disponible</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-unavailable"></div>
+                    <span>No disponible</span>
+                </div>
+            </div>
+            
+            <div class="time-slots">
+                <!-- Empty corner -->
+                <div></div>
+                
+                <!-- Day labels -->
+                <div class="day-label">Lunes</div>
+                <div class="day-label">Martes</div>
+                <div class="day-label">Miércoles</div>
+                <div class="day-label">Jueves</div>
+                <div class="day-label">Viernes</div>
+                <div class="day-label">Sábado</div>
+                <div class="day-label">Domingo</div>
+                
+                <!-- Time slots -->
+                <div class="time-label">09:00 - 10:00</div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                
+                <div class="time-label">10:00 - 11:00</div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                
+                <div class="time-label">11:00 - 12:00</div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                
+                <div class="time-label">12:00 - 13:00</div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                
+                <div class="time-label">13:00 - 14:00</div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                
+                <div class="time-label">14:00 - 15:00</div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                
+                <div class="time-label">15:00 - 16:00</div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                
+                <div class="time-label">16:00 - 17:00</div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                
+                <div class="time-label">17:00 - 18:00</div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                
+                <div class="time-label">18:00 - 19:00</div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                
+                <div class="time-label">19:00 - 20:00</div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot available"></div>
+                <div class="time-slot available"></div>
+                
+                <div class="time-label">20:00 - 21:00</div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+                <div class="time-slot"></div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 - Disponibilidad Horaria para Clases Virtuales</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
