@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .container {
@@ -50,7 +50,7 @@ h1 {
     display: grid;
     grid-template-columns: 120px repeat(7, 1fr);
     gap: 8px;
-    margin-top: 20px;
+    margin-top: 2.5px;
 }
 
 .time-label, .day-label {
@@ -162,3 +162,64 @@ footer {
         height: 30px;
     }
 }
+
+
+
+
+
+
+/* ... existing code ... */
+
+.week-selector {
+    margin-top: 15px;
+}
+
+.week-dropdown {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 8px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 500px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.week-dropdown:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.week-dropdown:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.week-dropdown option {
+    background-color: #182848;
+    color: white;
+    padding: 10px;
+}
+
+/* Ajuste responsive */
+@media (max-width: 768px) {
+    .week-dropdown {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .week-dropdown {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+}
+
+
+
+
+
+
+
