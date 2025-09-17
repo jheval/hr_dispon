@@ -2,3 +2,5 @@
 [15-Sep-2025 21:50:24 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_sqlite' (tried: C:\php\ext\pdo_sqlite (No se puede encontrar el módulo especificado), C:\php\ext\php_pdo_sqlite.dll (No se puede encontrar el módulo especificado)) in Unknown on line 0
 [15-Sep-2025 21:50:30 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite3' (tried: C:\php\ext\sqlite3 (No se puede encontrar el módulo especificado), C:\php\ext\php_sqlite3.dll (No se puede encontrar el módulo especificado)) in Unknown on line 0
 [15-Sep-2025 21:50:30 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_sqlite' (tried: C:\php\ext\pdo_sqlite (No se puede encontrar el módulo especificado), C:\php\ext\php_pdo_sqlite.dll (No se puede encontrar el módulo especificado)) in Unknown on line 0
+[17-Sep-2025 17:09:48 UTC] Unable to prepare statement: table reservations has no column named timeSlot
+[17-Sep-2025 17:10:24 UTC] Unable to prepare statement: table reservations has no column named timeSlot

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const API_URL = 'http://localhost:8090/api';
+    let currentWeek = '1';
     
     function createModal() {
         const modalHtml = `
@@ -34,7 +35,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            const saved = await saveReservation({ name, phone, week });
+            // Get correct time slot and day index
+            const row = slot.parentElement;
+            const timeSlot = row.querySelector('.time-label').textContent.trim();
+            const dayIndex = Array.from(row.children).indexOf(slot) - 1;
+
+            const reservationData = {
+                name,
+                phone,
+                week,
+                timeSlot,
+                dayIndex
+            };
+
+            const saved = await saveReservation(reservationData);
             if (saved) {
                 applyReservation(slot, name, phone);
                 modal.style.display = 'none';
@@ -60,26 +74,82 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function saveReservation(data) {
         try {
+            console.log('Sending data:', data); // Debug log
+
             const response = await fetch(`${API_URL}/save_reservation.php`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
                 body: JSON.stringify(data)
             });
 
+            if (!response.ok) {
+                const text = await response.text();
+                console.error('Server response:', text);
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
             const result = await response.json();
             if (!result.success) {
-                throw new Error(result.error);
+                throw new Error(result.error || 'Unknown error');
             }
             return true;
         } catch (error) {
             console.error('Error:', error);
-            alert('Error al guardar la reserva');
+            alert(`Error al guardar la reserva: ${error.message}`);
             return false;
         }
     }
 
+    // Load reservations for current week
+    async function loadWeekReservations(week) {
+        try {
+            const response = await fetch(`${API_URL}/get_reservations.php?week=${week}`);
+            const result = await response.json();
+            
+            if (result.success) {
+                // Clear all reservations first
+                document.querySelectorAll('.time-slot.reserved').forEach(slot => {
+                    slot.classList.remove('reserved');
+                    slot.innerHTML = '';
+                });
+
+                // Apply reservations for current week
+                result.data.forEach(reservation => {
+                    // Find the specific time-label that matches the reservation time
+                    const timeLabels = Array.from(document.querySelectorAll('.time-label'));
+                    const timeRowIndex = timeLabels.findIndex(label => 
+                        label.textContent.trim() === reservation.timeSlot.trim()
+                    );
+
+                    if (timeRowIndex !== -1) {
+                        // Get the parent row containing the time slots
+                        const row = timeLabels[timeRowIndex].parentElement;
+                        // Get the specific slot using dayIndex
+                        const slot = row.children[parseInt(reservation.dayIndex) + 1];
+                        
+                        if (slot && slot.classList.contains('time-slot')) {
+                            applyReservation(slot, reservation.name, reservation.phone);
+                        }
+                    }
+                });
+            }
+        } catch (error) {
+            console.error('Error loading reservations:', error);
+        }
+    }
+
+    // Add week change handler
+    document.getElementById('weekSelect').addEventListener('change', function(e) {
+        currentWeek = e.target.value;
+        loadWeekReservations(currentWeek);
+    });
+
     // Initialize
     createModal();
+    loadWeekReservations(currentWeek);
     
     // Add click handlers to available slots
     document.querySelectorAll('.available').forEach(slot => {

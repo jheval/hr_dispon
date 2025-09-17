@@ -13,11 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 require_once 'config.php';
 
 try {
-    global $database;
+    $week = isset($_GET['week']) ? $_GET['week'] : '1';
     
-    $results = $database->query("SELECT * FROM reservations ORDER BY timestamp DESC");
+    $stmt = $database->prepare("SELECT * FROM reservations WHERE week = :week ORDER BY timestamp DESC");
+    $stmt->bindValue(':week', $week, SQLITE3_TEXT);
+    $results = $stmt->execute();
+    
     $reservations = [];
-    
     while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
         $reservations[] = $row;
     }

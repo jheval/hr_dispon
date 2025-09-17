@@ -29,7 +29,10 @@ try {
             name TEXT NOT NULL,
             phone TEXT NOT NULL,
             week TEXT NOT NULL,
-            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+            timeSlot TEXT NOT NULL,
+            dayIndex INTEGER NOT NULL,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(week, timeSlot, dayIndex)
         )
     ");
 
